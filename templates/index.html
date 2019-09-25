@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <h1> Emotion Predictor</h1>
+    <h2> This only takes .wav as upload , you can record your voice and download a .wav file using the following link below</h2>
+</head>
+<body>
+<div>
+    <form action = "/upload" id="upload-file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"  accept= ".wav"/>
+        <input type= "submit" value = "Submit">
+    </form>
+
+<br>
+{{prediction_text}}
+</br>
+
+</div>
+
+
+
+
+
+</body>
+
+
+
