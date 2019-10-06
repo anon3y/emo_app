@@ -45,7 +45,9 @@ Female, as the actor ID number is even.
 <li>Link to the app : <a href="https://emo-app.herokuapp.com/">App</a></li>
 <li>Versions and Frameworks used are in requirements.txt</li>
 
-<b>Important Info </b>
+
+
+<b>Info!</b>
   The app only takes .wav files as input no larger than 5MB
 
 
