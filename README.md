@@ -47,7 +47,7 @@ Female, as the actor ID number is even.
 
 
 
-<b>Info!</b>
+<h3>Info!</h3>
   The app only takes .wav files as input no larger than 5MB
 
 
