@@ -34,14 +34,13 @@ Statement "dogs" (02)
 Female, as the actor ID number is even.
 
 
-
-
-
 <h1> Flask App </h1>
-<b> hosted on <a href="https://www.heroku.com"> Heroku </a>
-<b> Link to the app : <a href="https://emo-app.herokuapp.com/">App</a></b>
-  <b> Versions and Frameworks used are in requirements.txt </b>
-<b>Important Info </b>
+
+<li>hosted on <a href="https://www.heroku.com"> Heroku </a></li>
+<li>Link to the app : <a href="https://emo-app.herokuapp.com/">App</a></li>
+<li>Versions and Frameworks used are in requirements.txt</li>
+
+<h1>Important Info <h1>
   The app only takes .wav files as input no larger than 5MB
 
 
