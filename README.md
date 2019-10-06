@@ -1,6 +1,11 @@
-<h1>Emotion classification using Audio(.Wav format)</h1>
+<h1>Emotion classification using Audio</h1>
 
-<b> Data Set Used </b>
+<b> Function </b>
+
+The Flask app uses random forest in the backend to a user uploaded .wav file and predicts emotion of the audio file
+
+
+<b> Data Set Used to train the model </b>
 
 <li>Speech file (Audio_Speech_Actors_01-24.zip, 215 MB) contains 1440 files: 60 trials per actor x 24 actors = 1440.</li>
 <li>Song file (Audio_Song_Actors_01-24.zip, 198 MB) contains 1012 files: 44 trials per actor x 23 actors = 1012.</li>
@@ -40,7 +45,7 @@ Female, as the actor ID number is even.
 <li>Link to the app : <a href="https://emo-app.herokuapp.com/">App</a></li>
 <li>Versions and Frameworks used are in requirements.txt</li>
 
-<h1>Important Info <h1>
+<b>Important Info </b>
   The app only takes .wav files as input no larger than 5MB
 
 
