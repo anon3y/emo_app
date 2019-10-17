@@ -1,0 +1,27 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 155-104-210
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 155-104-210
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:03] "GET /upload HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:08] "GET /upload HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:13] "POST /upload HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:37] "GET / HTTP/1.1" 200 -
+DEBUG:root:audio array of the input file is (176400,) and sample rate  is 44100
+DEBUG:root:shape of mffcs is (20,)
+DEBUG:root: reshape mfccs is [[-400.9882      48.30878    -28.202873    -2.8918197   -7.280728
+    -6.952931   -10.171076     1.425072    -9.4672785   -6.3099856
+    -6.1737466   -3.1630223   -5.240899    -5.654307    -5.8075013
+    -1.8909981   -4.3850837   -8.640266    -4.988253    -3.685465 ]]
+DEBUG:root:the return value from function is[[-400.9882      48.30878    -28.202873    -2.8918197   -7.280728
+    -6.952931   -10.171076     1.425072    -9.4672785   -6.3099856
+    -6.1737466   -3.1630223   -5.240899    -5.654307    -5.8075013
+    -1.8909981   -4.3850837   -8.640266    -4.988253    -3.685465 ]]
+DEBUG:root:the prediction value is [1]
+DEBUG:root:the value is 1
+INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:49] "POST /upload HTTP/1.1" 200 -
