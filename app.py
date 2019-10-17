@@ -4,19 +4,32 @@ import librosa as lr
 import pickle
 import numpy as np
 import librosa.feature
+import logging
+logging.basicConfig(filename='log.txt',level=logging.DEBUG)
 
 
 
-model = pickle.load(open('model.pkl', 'rb'))
 
 
 def mffc_extract(file):
-    audio, sfreq = lr.load(file, sr=48000,offset=0.5,duration=3.5)
-    mfccs = np.mean(librosa.feature.mfcc(audio, sr=sfreq).T, axis=0)
+    '''
+    return an array
+
+    calculates mean of mfcc's from the audio file, and returns the reshaped array
+    '''
+    audio, fr = lr.load(file,sr=None,offset=0.1,duration=4)
+    logging.debug(f'audio array of the input file is {audio.shape} and sample rate  is {fr}')
+    mfccs = np.mean(librosa.feature.mfcc(audio, sr=fr).T, axis=0)
+    logging.debug(f'shape of mffcs is {mfccs.shape}')
+    logging.debug(f' reshape mfccs is {mfccs.reshape(-1,20)}')
     return mfccs.reshape(-1, 20)
 
 
 def convert_emo(value):
+    '''
+    returns the value for each key, the key being the prediction
+    '''
+    logging.debug(f'the value is {value}')
     my_dict={0:'angry', 1:'calm',2: 'fearful', 3:'happy', 4:'sad', 5:'surprised'}
     return my_dict.get(value)
 
@@ -44,11 +57,17 @@ def uploader():
             f = request.files['file']
             if f.filename!='':
                 mfcc = mffc_extract(f)
+                logging.debug(f'the return value from function is{mfcc}')
+                model = pickle.load(open('model.pkl', 'rb'))
+                logging.debug(f'the prediction value is {model.predict(mfcc)}')
                 return render_template('index1.html',prediction_text=f'your emotion is {convert_emo(model.predict(mfcc)[0])}')
             else:
                 return render_template('index.html', warning_text=f'FILE NOT UPLOADED')
 
 
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
+
