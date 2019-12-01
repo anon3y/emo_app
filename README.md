@@ -42,7 +42,7 @@ Female, as the actor ID number is even.
 <h1> Flask App </h1>
 
 <li>hosted on <a href="https://www.heroku.com"> Heroku </a></li>
-<li>Link to the app : <a href="https://emo-app.herokuapp.com/">App</a></li>
+<li>Link to the app : <a href="https://emobygender.herokuapp.com/">App</a></li>
 <li>Versions and Frameworks used are in requirements.txt</li>
 
 
