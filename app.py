@@ -34,6 +34,13 @@ def convert_emo(value):
     my_dict={0:'angry', 1:'calm',2:'disgust',3: 'fearful', 4:'happy', 5:'neutral', 6:'sad',7:'surprised'}
     return my_dict.get(value)
 
+def convert_gender(value):
+    '''
+        returns the value for each key, the key being the prediction
+        '''
+    logging.debug(f'the value is {value}')
+    my_dict = {0: 'Female', 1: 'Male'}
+    return my_dict.get(value)
 
 
 app = Flask(__name__)
@@ -60,8 +67,9 @@ def uploader():
                 mfcc = mffc_extract(f)
                 logging.debug(f'the return value from function is{mfcc}')
                 model = pickle.load(open('modelu.pkl', 'rb'))
+                modelg = pickle.load(open('modelg.pkl', 'rb'))
                 logging.debug(f'the prediction value is {model.predict(mfcc)}')
-                return render_template('index1.html',prediction_text=f'your emotion is {convert_emo(model.predict(model_u.scaler.transform(mfcc))[0])}')
+                return render_template('index1.html',prediction_text=f'your gender is {convert_gender(modelg.predict(model_u.scaler.transform(mfcc))[0])} and your emotion is {convert_emo(model.predict(model_u.scaler.transform(mfcc))[0])}')
             else:
                 return render_template('index.html', warning_text=f'FILE NOT UPLOADED')
 
