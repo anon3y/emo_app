@@ -27,3 +27,6 @@ DEBUG:root:the value is 1
 INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:49] "POST /upload HTTP/1.1" 200 -
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 155-104-210
+INFO:werkzeug: * Detected change in '/Users/samikshyapatra/PycharmProjects/emoapp/app.py', reloading
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 155-104-210

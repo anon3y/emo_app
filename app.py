@@ -58,7 +58,7 @@ def uploader():
             if f.filename!='':
                 mfcc = mffc_extract(f)
                 logging.debug(f'the return value from function is{mfcc}')
-                model = pickle.load(open('model.pkl', 'rb'))
+                model = pickle.load(open('modelu.pkl', 'rb'))
                 logging.debug(f'the prediction value is {model.predict(mfcc)}')
                 return render_template('index1.html',prediction_text=f'your emotion is {convert_emo(model.predict(mfcc)[0])}')
             else:
