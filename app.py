@@ -5,6 +5,7 @@ import pickle
 import numpy as np
 import librosa.feature
 import logging
+import model_u
 logging.basicConfig(filename='log.txt',level=logging.DEBUG)
 
 
@@ -30,7 +31,7 @@ def convert_emo(value):
     returns the value for each key, the key being the prediction
     '''
     logging.debug(f'the value is {value}')
-    my_dict={0:'angry', 1:'calm',2: 'fearful', 3:'happy', 4:'sad', 5:'surprised'}
+    my_dict={0:'angry', 1:'calm',2:'disgust',3: 'fearful', 4:'happy', 5:'neutral', 6:'sad',7:'surprised'}
     return my_dict.get(value)
 
 
@@ -60,7 +61,7 @@ def uploader():
                 logging.debug(f'the return value from function is{mfcc}')
                 model = pickle.load(open('modelu.pkl', 'rb'))
                 logging.debug(f'the prediction value is {model.predict(mfcc)}')
-                return render_template('index1.html',prediction_text=f'your emotion is {convert_emo(model.predict(mfcc)[0])}')
+                return render_template('index1.html',prediction_text=f'your emotion is {convert_emo(model.predict(model_u.scaler.transform(mfcc))[0])}')
             else:
                 return render_template('index.html', warning_text=f'FILE NOT UPLOADED')
 
