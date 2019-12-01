@@ -25,3 +25,5 @@ DEBUG:root:the return value from function is[[-400.9882      48.30878    -28.202
 DEBUG:root:the prediction value is [1]
 DEBUG:root:the value is 1
 INFO:werkzeug:127.0.0.1 - - [16/Oct/2019 23:02:49] "POST /upload HTTP/1.1" 200 -
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 155-104-210
