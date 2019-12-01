@@ -21,11 +21,6 @@ def label_encoding(target):
 def split(X, y, test_size=0.3, shuffle=True):
     return train_test_split(X, y, test_size=test_size, stratify=y,shuffle=shuffle)
 
-    ### Function to Opimize Hyperparameters using cross validation
-
-
-
-### Scale The data set using Standard scaler
 def scale(x):
     z_scaler = sklearn.preprocessing.StandardScaler()
     return z_scaler.fit(x)
@@ -33,15 +28,14 @@ def scale(x):
 
 ### Test performance with accuracy score
 def preformance(predicted, ytest):
-    print(accuracy_score(ytest, predicted))
+    return accuracy_score(ytest, predicted)
 
 data_df = pd.read_csv("dataformodel.csv")
 predictors = data_df.iloc[:, 0:20].values
 scaler = scale(predictors)
-if __name__ == "main":
+
+def model_emo_creation():
     clf = RandomForestClassifier(random_state=42)
-    print(data_df.shape)
-    print(data_df.columns)
     X = scaler.transform(predictors)
     label2 = data_df['Emotion_label']
     yemo, mapping = label_encoding(label2)
@@ -51,3 +45,23 @@ if __name__ == "main":
     yemo_pred = model.predict(Xemo_test)
     print(preformance(yemo_pred,yemo_test))
     pickle.dump(model,open('modelu.pkl','wb'))
+
+def model_gender_creation():
+    clf = RandomForestClassifier(random_state=42)
+    X = scaler.transform(predictors)
+    label2 = data_df['Gender_label']
+    yg, mapping = label_encoding(label2)
+    Xg_train, Xg_test, yg_train, yg_test = split(X, yg)
+    model = RandomForestClassifier(max_depth=13, max_features='auto', n_estimators=80)
+    model.fit(Xg_train, yg_train)
+    yg_pred = model.predict(Xg_test)
+    print(f'gender performance is {preformance(yg_pred, yg_test)}')
+    pickle.dump(model, open('modelg.pkl', 'wb'))
+
+
+
+
+
+if __name__ == '__main__':
+    model_emo_creation()
+    model_gender_creation()
